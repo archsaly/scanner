@@ -1,0 +1,18 @@
+name: Scanner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a multi-line script
+        run: |
+          echo "1" > scan.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: scan
+          path: scan.txt
